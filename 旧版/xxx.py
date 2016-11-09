@@ -1,6 +1,6 @@
 #usage
 # 1. open the terminal client and switch to your project directory
-# 2. input the cmd: python NearMerchantAutoBuild.py -w workspaceName.xcworkspace -s 
+# 2. input the cmd: python NearMerchantAutoBuild.py -w workspaceName.xcworkspace -s
 #                    schemeName -t NerMerchant -o ipaFilePath(~/Desktop/NearMerchant.ipa)
 
 from optparse import OptionParser
@@ -8,16 +8,16 @@ import subprocess
 import requests
 
 #iOS build setting
-CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Qfpay Technology Company Limited"
-PROVISIONING_PROFILE = "1fa0ccff-c5b7-4312-8c60-ea92fa7e0bbd"
+CODE_SIGN_IDENTITY = "iPhone Distribution: xxxx Technology Company Limited"
+PROVISIONING_PROFILE = "51a8e313-ade7-4606-a67a-3e543665757e"
 CONFIGURATION = "Release"
 SDK = "iphoneos"
 
 #pgyer setting
 PGYER_UPLOAD_URL 		= "http://www.pgyer.com/apiv1/app/upload"
-PGYER_DOWNLOAD_BASE_URL = "http://www.pgyer.com/testbuild"
-PGYER_USER_KEY 			= "9f7e464c5841eed38ef33709d5f8cd8a" #t #"ebdbfa7770bec238a0e9770e79459210" #p
-PGYER_API_KEY 			= "3d109b16b9b16a8442eb601956c8f8af" #t #"fb914b7d5b72fc11622cafaa3dfb183f" #p
+PGYER_DOWNLOAD_BASE_URL = "http://www.pgyer.com/xxxx"#下载地址
+PGYER_USER_KEY 			= "USER_KEY"
+PGYER_API_KEY 			= "API_KEY" 
 PGYER_INSTALL_PWD		= ""
 PGYER_PUBLISH_RANGE 	= "2"   #2:distribute directly      3:only I install
 PGYER_IS_PUBLISH_PUBLIC = "1" #is distribute to public
@@ -25,10 +25,10 @@ PGYER_UPDATE_DES     	= ""    #desc for version update
 
 #clean build dir
 def cleanBuildDir(buildDir):
-	cleanCmd = "rm -r %s" %(buildDir)
-	process = subprocess.Popen(cleanCmd, shell = True)
-	process.wait()
-	print "cleaned buildDir: %s" %(buildDir)
+    cleanCmd = "rm -r %s" %(buildDir)
+    process = subprocess.Popen(cleanCmd, shell = True)
+    process.wait()
+    print "cleaned buildDir: %s" % (buildDir)
 
 #define upload result log
 def parserUploadResult(jsonResult):
